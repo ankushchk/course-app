@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   async function getAdminRouteMe() {
     const token = localStorage.getItem("token");
     if (token && token !== "null") {
-      const res = await axios.get("http://localhost:3000/admin/me", {
+      const res = await axios.get("http://localhost:3001/admin/me", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -28,7 +28,10 @@ const Navbar: React.FC = () => {
       if (data.username) {
         setAuthStatus(true);
         setUser({ username: data.username });
-        localStorage.setItem("user", JSON.stringify({ username: data.username }));
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ username: data.username })
+        );
       }
     }
   }
@@ -46,13 +49,13 @@ const Navbar: React.FC = () => {
   }, []);
 
   // Handle user logout
-  const handleLogout  = () =>  {
+  const handleLogout = () => {
     localStorage.setItem("token", "null");
     localStorage.removeItem("user");
     setAuthStatus(false);
     setUser(null);
     navigate(0);
-  }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -75,11 +78,7 @@ const Navbar: React.FC = () => {
               >
                 Welcome! <b>{user?.username}</b>
               </Typography>
-              <Button
-                color="error"
-                variant="contained"
-                onClick={handleLogout}
-              >
+              <Button color="error" variant="contained" onClick={handleLogout}>
                 Logout
               </Button>
             </div>

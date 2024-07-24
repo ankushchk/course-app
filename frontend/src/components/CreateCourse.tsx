@@ -20,7 +20,7 @@ const CreateCourse: React.FC = () => {
   const handleAddCourse = async () => {
     // e.preventDefault();
     await axios.post(
-      "http://localhost:3000/admin/courses",
+      "http://localhost:3001/admin/courses",
       {
         title: title,
         description: description,
