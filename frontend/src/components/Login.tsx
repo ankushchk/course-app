@@ -25,7 +25,7 @@ const Login: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3001/admin/login", {
+      const res = await axios.post("http://api.alchemists.life/admin/login", {
         username: email,
         password: password,
       });

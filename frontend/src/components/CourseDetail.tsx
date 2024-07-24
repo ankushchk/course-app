@@ -29,7 +29,7 @@ const CourseDetail: React.FC = () => {
 
   useEffect(() => {
     async function getCourses() {
-      const res = await axios.get("http://localhost:3001/admin/courses/", {
+      const res = await axios.get("http://api.alchemists.life/admin/courses/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -140,7 +140,7 @@ function UpdateCourseCard({
   async function handleUpdate(e: React.FormEvent) {
     e.preventDefault();
     await axios.put(
-      "http://localhost:3001/admin/courses/" + course._id,
+      "http://api.alchemists.life/admin/courses/" + course._id,
       {
         title: title,
         description: description,

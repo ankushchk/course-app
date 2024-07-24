@@ -18,7 +18,7 @@ const Landing: React.FC = () => {
     const token = localStorage.getItem("token");
     if (token && token !== "null") {
       try {
-        const res = await axios.get("http://localhost:3001/admin/me", {
+        const res = await axios.get("http://api.alchemists.life/admin/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

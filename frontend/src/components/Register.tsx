@@ -26,7 +26,7 @@ const Register: React.FC = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3001/admin/signup", {
+      const res = await axios.post("http://api.alchemists.life/admin/signup", {
         username: email,
         password: password,
       });

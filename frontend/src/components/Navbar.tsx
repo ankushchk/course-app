@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   async function getAdminRouteMe() {
     const token = localStorage.getItem("token");
     if (token && token !== "null") {
-      const res = await axios.get("http://localhost:3001/admin/me", {
+      const res = await axios.get("http://api.alchemists.life", {
         headers: {
           Authorization: "Bearer " + token,
         },
