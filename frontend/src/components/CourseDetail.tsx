@@ -29,11 +29,14 @@ const CourseDetail: React.FC = () => {
 
   useEffect(() => {
     async function getCourses() {
-      const res = await axios.get("http://api.alchemists.life/admin/courses/", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const res = await axios.get(
+        "https://api.alchemists.life/admin/courses/",
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
       setCourses(res.data.courses);
     }
     getCourses();
@@ -140,7 +143,7 @@ function UpdateCourseCard({
   async function handleUpdate(e: React.FormEvent) {
     e.preventDefault();
     await axios.put(
-      "http://api.alchemists.life/admin/courses/" + course._id,
+      "https://api.alchemists.life/admin/courses/" + course._id,
       {
         title: title,
         description: description,

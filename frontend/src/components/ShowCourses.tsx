@@ -26,7 +26,7 @@ const ShowCourses: React.FC = () => {
   const [courses, setCourses] = useRecoilState(coursesState);
 
   async function getCourses() {
-    const res = await axios.get("http://api.alchemists.life/admin/courses/", {
+    const res = await axios.get("https://api.alchemists.life/admin/courses/", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

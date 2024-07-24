@@ -20,7 +20,7 @@ const CreateCourse: React.FC = () => {
   const handleAddCourse = async () => {
     // e.preventDefault();
     await axios.post(
-      "http://api.alchemists.life/admin/courses",
+      "https://api.alchemists.life/admin/courses",
       {
         title: title,
         description: description,
