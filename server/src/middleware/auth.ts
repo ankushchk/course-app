@@ -1,9 +1,6 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 import jwt from "jsonwebtoken";
-import config from "../config";
 
-const SECRET = config.SECRET_KEY; // This should be in an environment variable in a real application
+const SECRET = "random";
 import { NextFunction, Request, Response } from "express";
 import { AuthenticatedRequest } from "../types/types";
 
@@ -19,7 +16,7 @@ const authenticateJwt = (
       if (err) {
         return res.sendStatus(403);
       }
-      req.user = user; // Set the user object directly
+      req.user = user;
       next();
     });
   } else {
